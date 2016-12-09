@@ -4,7 +4,9 @@
   <link rel="stylesheet" href="/assets/reveal.js/css/theme/{% if page.theme %}{{ page.theme }}{% else %}white{% endif %}.css" id="theme">
 </head>
 <body>
-  <div class="reveal">{{ content }}</div>
+  <div class="reveal">
+  	{{ content }}
+  </div>
   <script src="/assets/reveal.js/js/reveal.js"></script>
   <script>
     var reveal_config = {{ page.reveal_config | jsonify }} || {};
