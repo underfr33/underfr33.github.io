@@ -1,0 +1,20 @@
+.reveal h1 {
+	font-family: 'Bree Serif', serif;
+	font-size: 2em;
+	font-weight: 400;
+}
+
+.reveal h2 {
+	font-family: 'Bree Serif', serif;
+	font-weight: 400;
+	text-transform: none;
+}
+
+.reveal section img {
+	border: none;
+	box-shadow: none;
+}
+
+.reveal ol {
+	width: 100%;
+}
