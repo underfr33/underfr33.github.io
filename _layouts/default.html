@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>{{ page.title }}</title>
-		<link rel="stylesheet" type="text/css" href="/css/main.css">
-	</head>
+	{% include head.html %}
 	<body>
 		<nav>
     		<ul>
@@ -11,6 +8,7 @@
 	        	<li><a href="/about">About</a></li>
         		<li><a href="/cv">CV</a></li>
         		<li><a href="/blog">Blog</a></li>
+        		<li><a href="/slides">Slides</a></li>
     		</ul>
 		</nav>
 		<div class="container">
@@ -18,11 +16,6 @@
 			{{ content }}
 		
 		</div><!-- /.container -->
-		<footer>
-    		<ul>
-        		<li><a href="mailto:katrin.bloms@googlemail.com">email</a></li>
-        		<li><a href="https://github.com/underfr33">github.com/underfr33</a></li>
-			</ul>
-		</footer>
+		{% include footer.html %}
 	</body>
 </html>
