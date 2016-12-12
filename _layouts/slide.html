@@ -90,6 +90,12 @@
           { src: '{{ "/reveal.js/plugin/notes/notes.js" | prepend: site.baseurl }}', async: true }
         ]
       });
+
+      Reveal.configure({
+        keyboard: {
+          13: 'next', // go to the next slide when the ENTER key is pressed
+        }
+      });
     </script>
     
   </body>
