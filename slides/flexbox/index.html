@@ -25,24 +25,25 @@ Dezember 2016
 </section>
 
 <section>
-	<section>
+	<section id="flexbox">
 		<h2>Was ist Flexbox</h2>
 
 		<ul>
 			<li class="fragment">Flexible Box Layout Module</li>
-			<li class="fragment">Elemente einer Seite so anordnen, dass sie sich auf verschiedenen Bildschirmgrößen/Ausgabegeräten vorhersagbar verhalten</li>
+			<li class="fragment">Elemente einer Seite so anordnen, dass sie sich auf verschiedene Bildschirmgrößen/Ausgabegeräten vorhersagbar verhalten</li>
 			<li class="fragment">ersetzt float, table und inline-block</li>
 			<li class="fragment">Flexbox-Modell besteht aus einem Eltern-Element <span class="fragment highlight-blue">flex-container</span>, welches die Eigenschaften für die Anordnung der darin enthaltenen Kind-Elemente <span class="fragment highlight-blue">flex-items</span> besitzt</li>
 			<li class="fragment">Anordnung der Elemente lässt sich mit CSS steuern</li>
 		</ul>
 
 		<aside class="notes" data-markdown>
+			+ mobile devices -> unterschiedlich anordnen und den Platz optimal ausnutzen
 			+ flex container
 			+ flex items
 		</aside>
 	</section>
 
-	<section>
+	<section id="flexboxAdvantages">
 		<h2>Vorteile?</h2>
 
 		<ul>
@@ -50,6 +51,11 @@ Dezember 2016
 			<li class="fragment">keine festen Größen, abs. Positionierungen, JS/jQuery, float- oder CSS-Hacks</li>
 			<li class="fragment">gleiche Höhe, vertikal zentrierter Content, Sticky Footers, column layouts</li>
 			<li class="fragment">Größe der Kind Element ändert sich dynamisch</li>
+
+			<ul>
+				<li class="fragment">"wachsen" um den verfügbaren Platz im Container auszufüllen</li>
+				<li class="fragment">"schrumpfen" um nicht über den Container hinauszuragen</li>
+			</ul>
 		</ul>
 
 		<aside class="notes" data-markdown>
@@ -65,13 +71,16 @@ Dezember 2016
 		![alt text](/images/caniuse.png "caniuse flexbox")
 
 		Note:
+		+ flexbox nicht neu, schon 2009 mit anderer Syntax
+		+ 2009 display: box, 2011 display: flexbox, aktuell display: flex
+		+ progressive enhancement für moderne Browser
 		+ -webkit- und -ms- Prefix
 	</section>
 </section>
 
 <section>
 	<section data-markdown data-background-image="/images/boxes.jpg">
-		## Flexbox
+		## Wie funktioniert es
 
 		```css
 		display: flex;
@@ -85,11 +94,15 @@ Dezember 2016
 </section>
 
 <section>
-	<section data-markdown data-background-image="/images/container.jpg">
+	<section id="flex-container" data-markdown data-background-image="/images/container.jpg">
 		## Eigenschaften für den
 		## Flex Container
 	</section>
 	<section data-markdown>
+		## flex-direction
+		(Flex-Items)
+	</section>
+	<section id="flex-direction" data-markdown>
 		### flex-direction
 
 		```css
@@ -99,8 +112,53 @@ Dezember 2016
 		![alt text](/images/justify-content_flex-start.jpg "justify-content flex-start")
 	</section>
 	<section data-markdown>
+		## justify-content
+		(Flex-Items entlang der Hauptachse ausrichten)
+	</section>
+	<section data-markdown>
 		### justify-content
-		Text
+
+		```css
+		justify-content: flex-start;
+		```
+
+		![alt text](/images/justify-content_flex-start.jpg "justify-content flex-start")
+	</section>
+	<section data-markdown>
+		### justify-content
+
+		```css
+		justify-content: center;
+		```
+
+		![alt text](/images/justify-content_flex-start.jpg "justify-content flex-start")
+	</section>
+	<section data-markdown>
+		### justify-content
+
+		```css
+		justify-content: flex-end;
+		```
+
+		![alt text](/images/justify-content_flex-start.jpg "justify-content flex-start")
+	</section>
+	<section data-markdown>
+		### justify-content
+
+		```css
+		justify-content: space-between;
+		```
+
+		![alt text](/images/justify-content_flex-start.jpg "justify-content flex-start")
+	</section>
+	<section data-markdown>
+		### justify-content
+
+		```css
+		justify-content: space-around;
+		```
+
+		![alt text](/images/justify-content_flex-start.jpg "justify-content flex-start")
 	</section>
 </section>
 
@@ -114,6 +172,10 @@ Dezember 2016
 		Text
 	</section>
 </section>
+
+<section id="end" data-markdown data-background-image="/images/examples.jpg">
+		## Beispiele
+	</section>
 
 <section>
 	<section id="end" data-markdown data-background-image="/images/applause2.gif">
