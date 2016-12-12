@@ -18,3 +18,14 @@
 .reveal ol {
 	width: 100%;
 }
+
+.reveal pre code {
+    padding: 1em;
+    background: #18354a;
+}
+
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-tag {
+	color: #ffc700 !important;
+}

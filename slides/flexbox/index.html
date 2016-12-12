@@ -24,38 +24,79 @@ Dezember 2016
 	3. Beispiele
 </section>
 
-<section class="stack">
+<section>
 	<section>
 		<h2>Was ist Flexbox</h2>
 
 		<ul>
-			<li class="fragment">CSS Flexible Box Layout Module</li>
-			<li class="fragment">Flexbox-Modell besteht aus einem Eltern-Element <span class="fragment highlight-blue">flex container</span>, welches die Eigenschaften für die Anordnung der darin enthaltenen Kind-Elemente <span class="fragment highlight-blue">flex items</span> besitzt</li>
+			<li class="fragment">Flexible Box Layout Module</li>
+			<li class="fragment">Elemente einer Seite so anordnen, dass sie sich auf verschiedenen Bildschirmgrößen/Ausgabegeräten vorhersagbar verhalten</li>
+			<li class="fragment">ersetzt float, table und inline-block</li>
+			<li class="fragment">Flexbox-Modell besteht aus einem Eltern-Element <span class="fragment highlight-blue">flex-container</span>, welches die Eigenschaften für die Anordnung der darin enthaltenen Kind-Elemente <span class="fragment highlight-blue">flex-items</span> besitzt</li>
 			<li class="fragment">Anordnung der Elemente lässt sich mit CSS steuern</li>
 		</ul>
 
-		<aside class="notes">
-			<ul>
-				<li>flex container</li>
-				<li>flex items</li>
-			</ul>
+		<aside class="notes" data-markdown>
+			+ flex container
+			+ flex items
+		</aside>
+	</section>
+
+	<section>
+		<h2>Vorteile?</h2>
+
+		<ul>
+			<li class="fragment">im Gegensatz zu block und inline ist Flexbox Richtungsunabhängig</li>
+			<li class="fragment">keine festen Größen, abs. Positionierungen, JS/jQuery, float- oder CSS-Hacks</li>
+			<li class="fragment">gleiche Höhe, vertikal zentrierter Content, Sticky Footers, column layouts</li>
+			<li class="fragment">Größe der Kind Element ändert sich dynamisch</li>
+		</ul>
+
+		<aside class="notes" data-markdown>
+			+ großer Vorteil für RWD
+			+ block: vertikal basiert
+			+ inline: horizontal basiert
+			+ Breite und Höhe der Kind Elemente ändern sich, um den verfügbaren Bildschirmbereich auf den verschiedenen Auflösungen (Devices) am besten zu füllen
 		</aside>
 	</section>
 
 	<section data-markdown>
 		## Browser Support
 		![alt text](/images/caniuse.png "caniuse flexbox")
+
+		Note:
+		+ -webkit- und -ms- Prefix
 	</section>
 </section>
 
-<section data-markdown>
+<section>
+	<section data-markdown data-background-image="/images/boxes.jpg">
+		## Flexbox
 
+		```css
+		display: flex;
+		```
+	</section>
+	<section data-markdown>
+		## Flexbox Basics
+
+		![alt text](/images/justify-content_flex-start.jpg "justify-content flex-start")
+	</section>
 </section>
 
-<section class="stack">
-	<section data-markdown data-background-image="/images/code2.jpg">
+<section>
+	<section data-markdown data-background-image="/images/container.jpg">
 		## Eigenschaften für den
 		## Flex Container
+	</section>
+	<section data-markdown>
+		### flex-direction
+
+		```css
+		flex-direction: flex-start;
+		```
+
+		![alt text](/images/justify-content_flex-start.jpg "justify-content flex-start")
 	</section>
 	<section data-markdown>
 		### justify-content
@@ -63,9 +104,10 @@ Dezember 2016
 	</section>
 </section>
 
-<section class="stack">
-	<section data-markdown>
-		## Die Reihenfolge
+<section>
+	<section data-markdown data-background-image="/images/children.jpg">
+		## Eigenschaften für die
+		## Flex Items
 	</section>
 	<section data-markdown>
 		# Headline2
@@ -73,17 +115,10 @@ Dezember 2016
 	</section>
 </section>
 
-<section id="end" data-markdown>
-	## Ende
-	![alt text](/images/applause2.gif "Applause")
-</section>
-
-<section data-markdown>
-## Slide Layout
-
-
-```html
-&lt;p&gt;Hallo.&lt;/p&gt;
-```
-
+<section>
+	<section id="end" data-markdown data-background-image="/images/applause2.gif">
+		## Ende
+	</section>
+	<section id="questions" data-markdown data-background-image="/images/questions.jpg">
+	</section>
 </section>
