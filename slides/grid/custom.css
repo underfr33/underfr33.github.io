@@ -1,15 +1,135 @@
-.reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 {
-    font-family: "Montserrat", Helvetica, sans-serif;
-    text-transform: unset;
-}
-
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4,
+.reveal h5,
+.reveal h6 {
+  font-family: "Montserrat", Helvetica, sans-serif;
+  text-transform: unset; }
+.reveal .dark h1,
+.reveal .dark h2,
+.reveal .dark h3,
+.reveal .dark h4,
+.reveal .dark h5,
+.reveal .dark h6 {
+  color: #FFF; }
 .reveal h1,
 .reveal .has-dark-background h1 {
-    font-size: 1.6em;
-    font-weight: 700;
-    color: #FF8C00;  
-}
-
+  font-size: 1.6em;
+  line-height: 1.3em;
+  font-weight: 700;
+  color: #333; }
+.reveal h2,
+.reveal .has-dark-background h2 {
+  font-size: 1.6em;
+  color: #FF8C00; }
+.reveal h3,
+.reveal .has-dark-background h3 {
+  font-size: 1.2em; }
+  .reveal h3 + h3,
+  .reveal .has-dark-background h3 + h3 {
+    margin-top: -20px; }
 .reveal p {
-    font-size: 0.8em;
-}
+  font-size: 0.8em; }
+.reveal pre {
+  box-shadow: none; }
+  .reveal pre code {
+    border-left: 1em solid darkorange; }
+.reveal .slides section .fragment.current-visible {
+  display: none; }
+  .reveal .slides section .fragment.current-visible.current-fragment {
+    display: block; }
+.reveal .flex, .reveal .flex-center {
+  display: flex; }
+.reveal .flex-center {
+  align-items: center;
+  justify-content: center; }
+.reveal .grid-container {
+  display: -ms-grid;
+  display: grid;
+  margin: 0 auto;
+  width: 250px;
+  height: 250px;
+  padding: 0.3em;
+  border: 2px solid rgba(0, 0, 0, 0.2); }
+  .reveal .grid-container.grid-auto-flow-row, .reveal .grid-container.grid-auto-flow-column {
+    grid-auto-flow: row;
+    grid-template-rows: auto auto auto;
+    grid-template-columns: auto auto auto; }
+  .reveal .grid-container.grid-auto-flow-column {
+    grid-auto-flow: column; }
+  .reveal .grid-container.grid-gap {
+    grid-gap: 20px 5px; }
+.reveal .grid-template-1 {
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, auto); }
+.reveal .grid-template-2 {
+  grid-template-columns: 40px auto 40px;
+  grid-template-rows: 40px auto 60px; }
+.reveal .grid-item {
+  border: 1px solid #FFF;
+  color: #FFF;
+  font-size: 0.5em; }
+.reveal .grid-item:nth-child(1) {
+  background-color: darkorange; }
+.reveal .grid-item:nth-child(2) {
+  background-color: #ff9514; }
+.reveal .grid-item:nth-child(3) {
+  background-color: #ff9e29; }
+.reveal .grid-item:nth-child(4) {
+  background-color: #ffa83d; }
+.reveal .grid-item:nth-child(5) {
+  background-color: #ffb152; }
+.reveal .grid-item:nth-child(6) {
+  background-color: #ffba66; }
+.reveal .grid-item:nth-child(7) {
+  background-color: #ffc37a; }
+.reveal .grid-item:nth-child(8) {
+  background-color: #ffcc8f; }
+.reveal .grid-item:nth-child(9) {
+  background-color: #ffd6a3; }
+.reveal .grid-item:nth-child(10) {
+  background-color: #ffb55c; }
+.reveal .animate-children .grid-item {
+  animation-name: child-fade-in;
+  animation-duration: 8s;
+  animation-iteration-count: infinite; }
+.reveal .animate-children .grid-item:nth-child(1) {
+  animation-delay: 0.4s; }
+.reveal .animate-children .grid-item:nth-child(2) {
+  animation-delay: 0.8s; }
+.reveal .animate-children .grid-item:nth-child(3) {
+  animation-delay: 1.2s; }
+.reveal .animate-children .grid-item:nth-child(4) {
+  animation-delay: 1.6s; }
+.reveal .animate-children .grid-item:nth-child(5) {
+  animation-delay: 2s; }
+.reveal .animate-children .grid-item:nth-child(6) {
+  animation-delay: 2.4s; }
+.reveal .animate-children .grid-item:nth-child(7) {
+  animation-delay: 2.8s; }
+.reveal .animate-children .grid-item:nth-child(8) {
+  animation-delay: 3.2s; }
+.reveal .animate-children .grid-item:nth-child(9) {
+  animation-delay: 3.6s; }
+.reveal .animate-children .grid-item:nth-child(10) {
+  animation-delay: 4s; }
+.reveal .animate-children .grid-item:nth-child(11) {
+  animation-delay: 4.4s; }
+.reveal .animate-children .grid-item:nth-child(12) {
+  animation-delay: 4.8s; }
+@keyframes child-fade-in {
+  0% {
+    opacity: 0; }
+  10% {
+    opacity: 0; }
+  20% {
+    opacity: 1; }
+  60% {
+    opacity: 1; }
+  80% {
+    opacity: 0; }
+  100% {
+    opacity: 0; } }
+
+/*# sourceMappingURL=custom.css.map */

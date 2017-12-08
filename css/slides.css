@@ -1,3 +1,8 @@
+body .reveal {
+	font-family: 'Open Sans', sans-serif;
+	font-size: 2em;
+}
+
 .reveal h1 {
 	font-family: 'Bree Serif', serif;
 	font-size: 2em;
@@ -15,6 +20,25 @@
 	text-transform: none;
 }
 
+.reveal p,
+.reveal ul p+p {
+	margin: 0;
+}
+
+.reveal p+p {
+	margin-bottom: 1em;
+}
+
+.reveal ul li,
+.reveal ul p {
+	font-size: 26px;
+	line-height: 1.6em;
+}
+
+.reveal ul p+p {
+	font-size: 24px;
+}
+
 .reveal section img {
 	border: none;
 	box-shadow: none;
@@ -24,8 +48,13 @@
 	width: 100%;
 }
 
+.reveal pre {
+	display: inline-block;
+	width: auto;
+}
+
 .reveal pre code {
-    padding: 1em;
+    padding: 1em 2em 1em 1em;
     background: #18354a;
 }
 
@@ -33,4 +62,12 @@
 .hljs-selector-tag,
 .hljs-tag {
 	color: #ffc700 !important;
+}
+
+.highlight-orange {
+	color: orange;
+}
+
+.dark .reveal .controls {
+    color: #f1f1f1;
 }

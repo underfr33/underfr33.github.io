@@ -8,27 +8,385 @@ transition: slide
 permalink: /slides/grid/
 ---
 
-<section id="start" data-markdown data-background="#000" data-background-image="/images/code.jpg" style="text-align: left; width: 65%;">
+<section id="Start" data-markdown data-state="dark" data-background-image="/images/grid_bg.jpg" style="text-align: left; max-width: 60%; left: 70px; background-color: rgba(255,255,255,0.8); padding: 1em !important;">
 	# Responsives und flexibles Layouten mit CSS Grid Layout
 	by [Katrin Werner](/) / [@underfree](http://twitter.com/underfree)
 	Dezember 2017
 </section>
 
-<section id="Fahrplan" data-markdown data-background="#000" data-background-image="/images/station.jpg" style="text-align: left;">
-	# Fahrplan
+<section id="Fahrplan" data-markdown data-state="dark" data-background-image="/images/station.jpg" style="text-align: left; left: 70px; color: #FFF;">
+	## Fahrplan
 
-	1. Was ist Flexbox
-	2. Wie funktioniert es
-	3. Beispiele
+	1. Basics
+	2. CSS-Eigenschaften
+	3. repeat, minmax und fr
+	4. Lines & Areas
+	5. Grid Item Placement Algorithm
+</section>
+
+<section id="LayoutingInCSS" data-markdown>
+	<script type="text/template">
+		### Layouting in CSS
+		- Frames <!-- .element class="fragment" -->
+		- Tabellen <!-- .element class="fragment" -->
+		- Floats & Clears <!-- .element class="fragment" -->
+		- absolute/relative Positionierung und inline-block <!-- .element class="fragment" -->
+		- Flexbox <!-- .element class="fragment" -->
+
+		  *eindimensionale Positionierung* <!-- .element class="fragment" -->
+		- Grid <!-- .element class="fragment" -->
+
+		  *zweidimensionale Positionierung* <!-- .element class="fragment" -->
+
+		Note:
+		+ frames
+	</script>
 </section>
 
 <section data-markdown>
-		"defines a two-dimensional grid-based layout system, optimized for user interface design. In the grid layout model, the children of a grid container can be positioned into arbitrary slots in a predefined flexible or fixed-size layout grid."
+		<script type="text/template">
+			### Browsersupport
+			![Browsersupport](/images/caniuse_grid.png)
+			
+			<small style="position: relative; left: 257px; top: -7px;">Quelle: [https://caniuse.com/#search=css%20grid](https://caniuse.com/#search=css%20grid)</small>
+		</script>
 </section>
 
-<section id="end" data-markdown data-background-image="/images/applause2.gif">
-	## Ende
+<section id="Terminologie" data-markdown>
+	## Terminologie
 </section>
 
-<section id="questions" data-markdown data-background-image="/images/questions.jpg">
+<section id="GridContainer">
+	<h3>Grid Container</h3>
+	<ul>
+		<li>Das Element, auf das <span class="highlight-orange"><i>display: grid</i></span> angewendet wird</li>
+		<li>Elternelement aller Grid Items</li>
+		<li class="fragment" data-fragment-index="1">Im Beispiel: <span class="highlight-orange"><i>.container</i></span> ist der Grid Container</li>
+	</ul>
+
+	<div data-markdown class="fragment" data-fragment-index="1">
+		<script type="text/template">
+			```html
+			<div class="container">
+				<div class="item item-1"></div>
+				<div class="item item-2"></div>
+				<div class="item item-3"></div>
+			</div>
+			```
+		</script>
+	</div>
+</section>
+
+<section id="GridItem">
+	<h3>Grid Item</h3>
+	<ul>
+		<li>Die Kinder des Grid Containers</li>
+		<li class="fragment" data-fragment-index="1">Im Beispiel: <span class="highlight-orange"><i>.item</i></span> sind Grid Items, <span class="highlight-orange"><i>.sub-item</i></span> nicht</li>
+	</ul>
+
+	<div data-markdown class="fragment" data-fragment-index="1">
+		<script type="text/template">
+			```html
+			<div class="container">
+				<div class="item"></div>
+				<div class="item">
+					<p class="sub-item"></p>
+				</div>
+				<div class="item"></div>
+			</div>
+			```
+		</script>
+	</div>
+	
+	<aside class="notes" data-markdown>
+		+ mobile devices -> unterschiedlich anordnen und den Platz optimal ausnutzen + flex container + flex items
+	</aside>
+</section>
+
+<section id="GridLine" data-markdown>
+	<script type="text/template">	
+		### Grid Line
+		- Trennende Linien, die die Struktur des Grids ausmachen
+		- entweder vertikal (*"column grid line"*) oder horizontal (*"row grid line"*)
+
+		![grid lines](/images/grid_lines.png)<!-- .element width="300px" -->
+	</script>
+</section>
+
+<section id="GridTrack" data-markdown>
+	<script type="text/template">
+		### Grid Track
+		- Die Fläche zwischen zwei benachbarten Grid Lines
+		- bilden die Spalten und Zeilen des Grids
+		
+		![grid track](/images/grid_track.png)<!-- .element width="300px" -->		
+	</script>
+</section>
+
+<section id="GridCell" data-markdown>
+	<script type="text/template">
+		### Grid Cell
+		- Die Fläche zwischen zwei benachbarten horizontalen und zwei benachbarten vertikalen Grid Lines
+		- Eine einzelne Einheit eines CSS Grid
+		- Im Beispiel die Grid Cell zwischen row grid lines 2 und 3 und column grid lines 1 und 2
+		
+		![grid cell](/images/grid_cell.png)<!-- .element width="300px" -->		
+	</script>
+</section>
+
+<section id="GridArea" data-markdown>
+	<script type="text/template">
+		### Grid Area
+		- Die Fläche zwischen 4 Grid Lines
+		- kann eine beliebige Anzahl von *Grid Cells* enthalten
+		
+		![grid area](/images/grid_area.png)<!-- .element width="300px" -->		
+	</script>
+</section>
+
+<section data-markdown>
+	## CSS-Eigenschaften
+	### auf dem Grid Container
+</section>
+
+<section data-markdown>
+	<script type="text/template">
+		### Beispiel 3x3 Grid Container
+
+		```html
+		<div class="container">
+			<span class="item">1</span>
+			<span class="item">2</span>
+			<span class="item">3</span>
+			<span class="item">4</span>
+			<span class="item">5</span>
+			<span class="item">6</span>
+			<span class="item">7</span>
+			<span class="item">8</span>
+			<span class="item">9</span>
+		</div>
+		```
+	</script>
+</section>
+
+<section data-markdown>
+	<script type="text/template">
+		### display
+
+		```css
+		.container {
+			display: grid | inline-grid | subgrid;
+		}
+		```
+		
+		<div class="grid-container fragment">
+			<span class="grid-item">1</span>
+			<span class="grid-item">2</span>
+			<span class="grid-item">3</span>
+			<span class="grid-item">4</span>
+			<span class="grid-item">5</span>
+			<span class="grid-item">6</span>
+			<span class="grid-item">7</span>
+			<span class="grid-item">8</span>
+			<span class="grid-item">9</span>
+		</div>
+	</script>
+</section>
+
+<section data-markdown>
+	<script type="text/template">
+		### grid-template-columns
+		### grid-template-rows
+
+		```css
+		.container {
+			grid-template-columns: <track-size> ... | <line-name> <track-size> ...;
+			grid-template-rows: <track-size> ... | <line-name> <track-size> ...;
+		}
+		```
+
+		- definiert die Spalten und Zeilen des Layouts
+
+		  *wie viele Spalten und Zeilen, Breite der Spalten und Höhe der Zeilen* 
+		- _&lt;track-size&gt;_<!-- .element class="highlight-orange" --> Angabe in px, %, auto oder fr
+		- _&lt;line-name&gt;_<!-- .element class="highlight-orange" --> beliebiger Name nach Wahl
+		- ohne Angabe von &lt;line-name&gt; werden den Grid-Lines automatisch Nummern zugewiesen<!-- .element class="fragment" -->
+	</script>
+</section>
+
+<section data-markdown>
+	<script type="text/template">
+		### grid-template-columns
+		### grid-template-rows
+
+		```css
+		.container {
+			display: grid;
+			grid-template-columns: 83px 83px 83px;
+			grid-template-rows: 83px 83px 83px;
+		}
+		```
+		
+		<div class="grid-container grid-template-1 fragment">
+			<span class="grid-item flex-center">1</span>
+			<span class="grid-item flex-center">2</span>
+			<span class="grid-item flex-center">3</span>
+			<span class="grid-item flex-center">4</span>
+			<span class="grid-item flex-center">5</span>
+			<span class="grid-item flex-center">6</span>
+			<span class="grid-item flex-center">7</span>
+			<span class="grid-item flex-center">8</span>
+			<span class="grid-item flex-center">9</span>
+		</div>
+	</script>
+</section>
+
+<section data-markdown>
+	<script type="text/template">
+		### grid-gap
+
+		```css
+		.container {
+			...
+			grid-row-gap: 20px;
+			grid-column-gap: 5px;
+		}
+		```
+
+		<div class="grid-container grid-template-1 grid-gap">
+			<span class="grid-item flex-center">1</span>
+			<span class="grid-item flex-center">2</span>
+			<span class="grid-item flex-center">3</span>
+			<span class="grid-item flex-center">4</span>
+			<span class="grid-item flex-center">5</span>
+			<span class="grid-item flex-center">6</span>
+			<span class="grid-item flex-center">7</span>
+			<span class="grid-item flex-center">8</span>
+			<span class="grid-item flex-center">9</span>
+		</div>
+	</script>
+</section>
+
+<section data-markdown>
+	<script type="text/template">
+		### grid-gap - shorthand
+
+		```css
+		.container {
+			...
+			grid-gap: 20px 5px;
+		}
+		```
+
+		<div class="grid-container grid-template-1 grid-gap">
+			<span class="grid-item flex-center">1</span>
+			<span class="grid-item flex-center">2</span>
+			<span class="grid-item flex-center">3</span>
+			<span class="grid-item flex-center">4</span>
+			<span class="grid-item flex-center">5</span>
+			<span class="grid-item flex-center">6</span>
+			<span class="grid-item flex-center">7</span>
+			<span class="grid-item flex-center">8</span>
+			<span class="grid-item flex-center">9</span>
+		</div>
+	</script>
+</section>
+
+<section data-markdown>
+	## CSS-Eigenschaften
+	### auf dem Grid Item
+</section>
+
+<section id="GridContainerTemplate3">
+	<div class="grid-container grid-template-2">
+		<span class="grid-item"></span>
+		<span class="grid-item"></span>
+		<span class="grid-item"></span>
+		<span class="grid-item"></span>
+		<span class="grid-item"></span>
+		<span class="grid-item"></span>
+		<span class="grid-item"></span>
+		<span class="grid-item"></span>
+		<span class="grid-item"></span>
+	</div>
+</section>
+
+<section id="GridAutoFlowRow">
+	<div class="grid-container grid-auto-flow-row animate-children">
+		<span class="grid-item"></span>
+		<span class="grid-item"></span>
+		<span class="grid-item"></span>
+		<span class="grid-item"></span>
+		<span class="grid-item"></span>
+		<span class="grid-item"></span>
+		<span class="grid-item"></span>
+		<span class="grid-item"></span>
+		<span class="grid-item"></span>
+	</div>
+</section>
+
+<section id="GridAutoFlowColumn">
+	<div class="grid-container grid-auto-flow-column animate-children">
+		<span class="grid-item"></span>
+		<span class="grid-item"></span>
+		<span class="grid-item"></span>
+		<span class="grid-item"></span>
+		<span class="grid-item"></span>
+		<span class="grid-item"></span>
+		<span class="grid-item"></span>
+		<span class="grid-item"></span>
+		<span class="grid-item"></span>
+	</div>
+</section>
+
+<section id="GridItemPlacement" data-markdown>
+	## Grid Item Placement
+</section>
+
+<section id="GridItemPlacementAlgorithm" data-markdown>
+	### Grid Item Placement Algorithm
+	- CSS Grid anwenden bedeutet mehr als nur Synthax merken
+	- ein wichtiger Part ist zu verstehen, wie der Browser die Grid Elemente in einem Grid anordnet
+</section>
+
+<section data-markdown>
+	<script type="text/template">
+		### 4x3 Grid
+		```css
+		.container {
+			display: grid;
+			grid-template-columns: repeat(4, 1fr);
+			grid-template-rows: repeat(3, 1fr);
+		}
+		```
+	</script>
+</section>
+
+<section data-markdown>
+	<script type="text/template">
+		```css
+		grid-auto-flow: row;
+		```
+
+		![text](/images/grid_auto_flow_row.gif)
+		<small style="position: relative; left: 282px; top: -7px;">Quelle: [http://gedd.ski/post/grid-item-placement](http://gedd.ski/post/grid-item-placement)</small>	
+	</script>
+</section>
+
+<section data-markdown>
+	<script type="text/template">
+		```css
+		grid-auto-flow: column;
+		```
+
+		![text](/images/grid_auto_flow_column.gif)
+		<small style="position: relative; left: 282px; top: -7px;">Quelle: [http://gedd.ski/post/grid-item-placement](http://gedd.ski/post/grid-item-placement)</small>	
+	</script>
+</section>
+
+<section id="Thx" data-markdown data-state="dark" data-background-image="/images/applause.gif">
+	## Danke!
+</section>
+
+<section id="Fragen" data-markdown data-background-image="/images/questions.jpg">
 </section>
