@@ -20,6 +20,12 @@ body .reveal {
 	text-transform: none;
 }
 
+.reveal h4 {
+	font-weight: 400;
+	text-transform: none;
+	font-size: 1em;
+}
+
 .reveal p,
 .reveal ul p+p {
 	margin: 0;
