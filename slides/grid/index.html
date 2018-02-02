@@ -32,17 +32,22 @@ permalink: /slides/grid/
 		- Tabellen <!-- .element class="fragment" -->
 		- Floats, Clears, Positionierung <!-- .element class="fragment" -->
 		- Flexbox <!-- .element class="fragment" -->
-
-		  *eindimensionale Positionierung* <!-- .element class="fragment" -->
 		- Grid <!-- .element class="fragment" -->
-
-		  *zweidimensionale Positionierung* <!-- .element class="fragment" -->
 
 		Note:
 		+ Design Tools begrenzt auf Typografie und Ausrichtung
 		+ mehrere HTML Seiten zu einer
 		+ Whitespace mit 1square px space gifs
 		+ dann kam CSS, absolute/relative und inline-block
+		+ aktuell meist genutzte CSS-Technik ist Flexbox (Bootstrap 4)
+	</script>
+</section>
+
+<section id="GridvsFlexbox" data-markdown>
+	<script type="text/template">
+		### Flexbox vs Grid
+		
+		![grid vs flexbox](/images/grid-vs-flexbox.svg)<!-- .element width="75%" -->		
 	</script>
 </section>
 
@@ -52,6 +57,10 @@ permalink: /slides/grid/
 			![Browsersupport](/images/caniuse_grid.png)
 			
 			<small style="position: relative; left: 257px; top: -7px;">Quelle: [https://caniuse.com/#search=css%20grid](https://caniuse.com/#search=css%20grid)</small>
+
+			Note:
+			+ Browser-Support bei neuen CSS-Eigenschaften immer etwas Spezielles
+			+ CSS Grid aber jetzt schon von allen modernen Browsern unterstützt, IE diesmal kein Spielverderber
 		</script>
 </section>
 
@@ -263,8 +272,7 @@ permalink: /slides/grid/
 
 <section data-markdown>
 	<script type="text/template">
-		### grid-template-columns
-		### grid-template-rows
+		### grid-template Beispiel 1
 
 		```css
 		.container {
@@ -275,6 +283,32 @@ permalink: /slides/grid/
 		```
 		
 		<div class="grid-container grid-template-1 fragment">
+			<span class="grid-item flex-center">1</span>
+			<span class="grid-item flex-center">2</span>
+			<span class="grid-item flex-center">3</span>
+			<span class="grid-item flex-center">4</span>
+			<span class="grid-item flex-center">5</span>
+			<span class="grid-item flex-center">6</span>
+			<span class="grid-item flex-center">7</span>
+			<span class="grid-item flex-center">8</span>
+			<span class="grid-item flex-center">9</span>
+		</div>
+	</script>
+</section>
+
+<section data-markdown>
+	<script type="text/template">
+		### grid-template Beispiel 2
+
+		```css
+		.container {
+			display: grid;
+			grid-template-columns: 40px auto 40px;
+			grid-template-rows: 40px auto 70px;
+		}
+		```
+		
+		<div class="grid-container grid-template-2 fragment">
 			<span class="grid-item flex-center">1</span>
 			<span class="grid-item flex-center">2</span>
 			<span class="grid-item flex-center">3</span>
@@ -365,16 +399,15 @@ permalink: /slides/grid/
 		grid-column-end: 3;
 		```
 		
-		<div class="grid-container">
-			<span class="grid-item">1</span>
-			<span class="grid-item">2</span>
-			<span class="grid-item">3</span>
-			<span class="grid-item">4</span>
-			<span class="grid-item">5</span>
-			<span class="grid-item">6</span>
-			<span class="grid-item">7</span>
-			<span class="grid-item">8</span>
-			<span class="grid-item">9</span>
+		<div class="grid-container grid-column">
+			<span class="grid-item flex-center">1</span>
+			<span class="grid-item flex-center">2</span>
+			<span class="grid-item flex-center">3</span>
+			<span class="grid-item flex-center">4</span>
+			<span class="grid-item flex-center">5</span>
+			<span class="grid-item flex-center">6</span>
+			<span class="grid-item flex-center">7</span>
+			<span class="grid-item flex-center">8</span>
 		</div>
 	</script>
 </section>
@@ -384,19 +417,18 @@ permalink: /slides/grid/
 		### grid-column shorthand
 
 		```css
-		grid-column: 2 / 3
+		grid-column: 1 / 3
 		```
 		
-		<div class="grid-container">
-			<span class="grid-item">1</span>
-			<span class="grid-item">2</span>
-			<span class="grid-item">3</span>
-			<span class="grid-item">4</span>
-			<span class="grid-item">5</span>
-			<span class="grid-item">6</span>
-			<span class="grid-item">7</span>
-			<span class="grid-item">8</span>
-			<span class="grid-item">9</span>
+		<div class="grid-container grid-column">
+			<span class="grid-item flex-center">1</span>
+			<span class="grid-item flex-center">2</span>
+			<span class="grid-item flex-center">3</span>
+			<span class="grid-item flex-center">4</span>
+			<span class="grid-item flex-center">5</span>
+			<span class="grid-item flex-center">6</span>
+			<span class="grid-item flex-center">7</span>
+			<span class="grid-item flex-center">8</span>
 		</div>
 	</script>
 </section>
@@ -407,19 +439,17 @@ permalink: /slides/grid/
 
 		```css
 		grid-row-start: 1;
-		grid-row-end: 3;
+		grid-row-end: 4;
 		```
 		
-		<div class="grid-container">
-			<span class="grid-item">1</span>
-			<span class="grid-item">2</span>
-			<span class="grid-item">3</span>
-			<span class="grid-item">4</span>
-			<span class="grid-item">5</span>
-			<span class="grid-item">6</span>
-			<span class="grid-item">7</span>
-			<span class="grid-item">8</span>
-			<span class="grid-item">9</span>
+		<div class="grid-container grid-row">
+			<span class="grid-item flex-center">1</span>
+			<span class="grid-item flex-center">2</span>
+			<span class="grid-item flex-center">3</span>
+			<span class="grid-item flex-center">4</span>
+			<span class="grid-item flex-center">5</span>
+			<span class="grid-item flex-center">6</span>
+			<span class="grid-item flex-center">7</span>
 		</div>
 	</script>
 </section>
@@ -429,19 +459,17 @@ permalink: /slides/grid/
 		### grid-row shorthand
 
 		```css
-		grid-row: 1 / 3;
+		grid-row: 1 / 4;
 		```
 		
-		<div class="grid-container">
-			<span class="grid-item">1</span>
-			<span class="grid-item">2</span>
-			<span class="grid-item">3</span>
-			<span class="grid-item">4</span>
-			<span class="grid-item">5</span>
-			<span class="grid-item">6</span>
-			<span class="grid-item">7</span>
-			<span class="grid-item">8</span>
-			<span class="grid-item">9</span>
+		<div class="grid-container grid-row">
+			<span class="grid-item flex-center">1</span>
+			<span class="grid-item flex-center">2</span>
+			<span class="grid-item flex-center">3</span>
+			<span class="grid-item flex-center">4</span>
+			<span class="grid-item flex-center">5</span>
+			<span class="grid-item flex-center">6</span>
+			<span class="grid-item flex-center">7</span>
 		</div>
 	</script>
 </section>
@@ -451,20 +479,15 @@ permalink: /slides/grid/
 		### grid-row + grid-column
 
 		```css
-		grid-row: 1 / span 2;
+		grid-row: 1 / span 3;
 		grid-column: 1 / span 2;
 		```
 		
-		<div class="grid-container">
-			<span class="grid-item">1</span>
-			<span class="grid-item">2</span>
-			<span class="grid-item">3</span>
-			<span class="grid-item">4</span>
-			<span class="grid-item">5</span>
-			<span class="grid-item">6</span>
-			<span class="grid-item">7</span>
-			<span class="grid-item">8</span>
-			<span class="grid-item">9</span>
+		<div class="grid-container grid-column grid-row">
+			<span class="grid-item flex-center">1</span>
+			<span class="grid-item flex-center">2</span>
+			<span class="grid-item flex-center">3</span>
+			<span class="grid-item flex-center">4</span>
 		</div>
 	</script>
 </section>
@@ -474,20 +497,6 @@ permalink: /slides/grid/
 
 	- justify-self
 	- align-self
-</section>
-
-<section id="GridContainerTemplate3">
-	<div class="grid-container grid-template-2">
-		<span class="grid-item"></span>
-		<span class="grid-item"></span>
-		<span class="grid-item"></span>
-		<span class="grid-item"></span>
-		<span class="grid-item"></span>
-		<span class="grid-item"></span>
-		<span class="grid-item"></span>
-		<span class="grid-item"></span>
-		<span class="grid-item"></span>
-	</div>
 </section>
 
 <section id="GridItemPlacement" data-markdown>
@@ -519,12 +528,24 @@ permalink: /slides/grid/
 
 <section data-markdown>
 	<script type="text/template">
+		### auto placement
+
+		Note:
+		+ wenn nichts angegeben wird auto placement angewendet
+	</script>
+</section>
+
+<section data-markdown>
+	<script type="text/template">
 		```css
 		grid-auto-flow: row;
 		```
 
 		![text](/images/grid_auto_flow_row.gif)
-		<small style="position: relative; left: 282px; top: -7px;">Quelle: [http://gedd.ski/post/grid-item-placement](http://gedd.ski/post/grid-item-placement)</small>	
+		<small style="position: relative; left: 282px; top: -7px;">Quelle: [http://gedd.ski/post/grid-item-placement](http://gedd.ski/post/grid-item-placement)</small>
+
+		Note:
+		+ default-Wert ist row
 	</script>
 </section>
 
@@ -536,6 +557,148 @@ permalink: /slides/grid/
 
 		![text](/images/grid_auto_flow_column.gif)
 		<small style="position: relative; left: 282px; top: -7px;">Quelle: [http://gedd.ski/post/grid-item-placement](http://gedd.ski/post/grid-item-placement)</small>	
+	</script>
+</section>
+
+<section data-markdown>
+	<script type="text/template">
+		### Placed Grid Items
+
+		Note:
+		+ viele Möglichkeiten ein grid item in einem grid zu plazieren
+		+ grid-row-start, grid-row-end, grid-column-start, grid-column-end, grid-area...
+		+ Grid Item Placement Algorithm gibt Top Prio für items mit entsprechender Definition
+	</script>
+</section>
+
+<section data-markdown>
+	<script type="text/template">
+		```css
+		rocky {
+			grid-row-start: 2;
+		}
+		```
+
+		![text](/images/grid_item_placement_row-start.gif)
+		<small style="position: relative; left: 282px; top: -7px;">Quelle: [http://gedd.ski/post/grid-item-placement](http://gedd.ski/post/grid-item-placement)</small>
+
+		Note: 
+	</script>
+</section>
+
+<section data-markdown>
+	<script type="text/template">
+		```css
+		rocky {
+			grid-row-end: 3;
+		}
+		```
+
+		![text](/images/grid_item_placement_row-end.gif)
+		<small style="position: relative; left: 282px; top: -7px;">Quelle: [http://gedd.ski/post/grid-item-placement](http://gedd.ski/post/grid-item-placement)</small>	
+	</script>
+</section>
+
+<section data-markdown>
+	<script type="text/template">
+		```css
+		rocky {
+			grid-row: span 2;
+		}
+		```
+
+		![text](/images/grid_item_placement_row-span.gif)
+		<small style="position: relative; left: 282px; top: -7px;">Quelle: [http://gedd.ski/post/grid-item-placement](http://gedd.ski/post/grid-item-placement)</small>
+
+		Note:
+		+ priority placement nur für start/end, nicht für span
+	</script>
+</section>
+
+<section data-markdown>
+	<script type="text/template">
+		```css
+		rocky {
+			grid-column-start: 3;
+		}
+		```
+
+		![text](/images/grid_item_placement_column-positioning.gif)
+		<small style="position: relative; left: 282px; top: -7px;">Quelle: [http://gedd.ski/post/grid-item-placement](http://gedd.ski/post/grid-item-placement)</small>
+
+		Note:
+		+ kein priority placement für column positioning (bei grid-auto-flow: row)
+		+ wenn grid item an der Reihe ist wird angegebene Position beachtet
+		+ es können leere Zellen entstehen
+	</script>
+</section>
+
+<section data-markdown>
+	<script type="text/template">
+		```css
+		rocky {
+			grid-column-start: 3;
+		}
+		```
+
+		![text](/images/grid_item_placement_column-flow-priority.gif)
+		<small style="position: relative; left: 282px; top: -7px;">Quelle: [http://gedd.ski/post/grid-item-placement](http://gedd.ski/post/grid-item-placement)</small>
+
+		Note:
+		+ priority placement für column positioning bei column flowing grid
+	</script>
+</section>
+
+<section data-markdown>
+	<script type="text/template">
+		```css
+		dunes {
+			order: 1;
+		}
+		```
+
+		![text](/images/grid_item_placement_order.gif)
+		<small style="position: relative; left: 282px; top: -7px;">Quelle: [http://gedd.ski/post/grid-item-placement](http://gedd.ski/post/grid-item-placement)</small>
+
+		Note:
+		+ default order: 0
+		+ grid item muss warten, bis alle anderen grid items plaziert sind
+	</script>
+</section>
+
+<section data-markdown>
+	<script type="text/template">
+		```css
+		dunes {
+			order: -1;
+		}
+		```
+
+		![text](/images/grid_item_placement_negative-order.gif)
+		<small style="position: relative; left: 282px; top: -7px;">Quelle: [http://gedd.ski/post/grid-item-placement](http://gedd.ski/post/grid-item-placement)</small>
+
+		Note:
+		+ grid item wird als erstes plaziert
+	</script>
+</section>
+
+<section data-markdown>
+	<script type="text/template">
+		```css
+		rocky {
+			grid-row: 1 / 3;
+		}
+		dunes {
+			order: -1;
+		}
+		```
+
+		![text](/images/grid_item_placement_negative-order.gif)
+		<small style="position: relative; left: 282px; top: -7px;">Quelle: [http://gedd.ski/post/grid-item-placement](http://gedd.ski/post/grid-item-placement)</small>
+
+		Note:
+		+ start/end kommt vor order
+		+ grid items mit same-direction-as-grid positioning sind "Gold Card Members"
 	</script>
 </section>
 
