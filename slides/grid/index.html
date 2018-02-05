@@ -19,8 +19,8 @@ permalink: /slides/grid/
 
 	1. Basics
 	2. CSS-Eigenschaften
-	3. fr-fraction, repaet & minmax()
-	4. Lines & Areas
+	3. fr-fraction, repaet() & minmax()
+	4. Areas
 	5. Grid Item Placement Algorithm
 </section>
 
@@ -40,6 +40,7 @@ permalink: /slides/grid/
 		+ Whitespace mit 1square px space gifs
 		+ dann kam CSS, absolute/relative und inline-block
 		+ aktuell meist genutzte CSS-Technik ist Flexbox (Bootstrap 4)
+		+ Flexible Box Layout Module 2009, CSS Grid 2012, Bootstrap 2011
 	</script>
 </section>
 
@@ -125,13 +126,13 @@ permalink: /slides/grid/
 	</script>
 </section>
 
-<section id="GridTrack" data-markdown>
+<!-- section id="GridTrack" data-markdown>
 	<script type="text/template">
 		### Grid Track
 		- Die Fläche zwischen zwei benachbarten Grid Lines
 		- bilden die Spalten und Zeilen des Grids
 		
-		![grid track](/images/grid_track.png)<!-- .element width="300px" -->		
+		![grid track](/images/grid_track.png)		
 	</script>
 </section>
 
@@ -142,15 +143,16 @@ permalink: /slides/grid/
 		- Eine einzelne Einheit eines CSS Grid
 		- Im Beispiel die Grid Cell zwischen row grid lines 2 und 3 und column grid lines 1 und 2
 		
-		![grid cell](/images/grid_cell.png)<!-- .element width="300px" -->		
+		![grid cell](/images/grid_cell.png)		
 	</script>
-</section>
+</section -->
 
 <section id="GridArea" data-markdown>
 	<script type="text/template">
 		### Grid Area
 		- Die Fläche zwischen 4 Grid Lines
 		- kann eine beliebige Anzahl von *Grid Cells* enthalten
+		- Grid Area ist immer rechteckig - L-Form zum Beispiel nicht möglich
 		
 		![grid area](/images/grid_area.png)<!-- .element width="300px" -->		
 	</script>
@@ -376,6 +378,8 @@ permalink: /slides/grid/
 <section data-markdown>
 	#### weitere Eigenschaften auf dem Grid Container
 
+	- grid-template-areas
+	- grid-template
 	- justify-items
 	- align-items
 	- justify-content
@@ -383,6 +387,7 @@ permalink: /slides/grid/
 	- grid-auto-columns
 	- grid-auto-rows
 	- grid-auto-flow
+	- grid
 </section>
 
 <section data-markdown>
@@ -495,12 +500,74 @@ permalink: /slides/grid/
 <section data-markdown>
 	#### weitere Eigenschaften auf dem Grid Item
 
+	- grid-area
 	- justify-self
 	- align-self
 </section>
 
-<section id="GridItemPlacement" data-markdown>
+<section id="" data-markdown>
 	## fr-fraction, repaet & minmax()
+</section>
+
+<section id="" data-markdown>
+	<script type="text/template">
+		### fr - fraction
+
+		```css
+		.container {
+			display: grid;
+			grid-template-rows:200px 1fr 100px;
+			grid-template-columns:25% 25% 25% 25%;
+		}
+		```
+
+		![grid fraction](/images/grid_fraction.png)<!-- .element width="500px" -->
+
+		Note:
+		+ neue flexible Maßeinheit
+		+ Grid-Zellen­größen lassen sich in fr angeben
+		+ 1fr = 1 Teil der Containerbreite
+		+ verschiedene Einheiten können gemischt werden
+	</script>
+</section>
+
+<section id="" data-markdown>
+	<script type="text/template">
+		### repeat() - Funktion
+
+		```css
+		.container {
+			display: grid;
+			grid-template-rows:200px 1fr 100px;
+			grid-template-columns: repeat(4, 25%);
+		}
+		```
+
+		![grid fraction](/images/grid_fraction.png)<!-- .element width="500px" -->
+
+		Note:
+		+ der erste Wert steht für die Anzahl der Wiederholungen
+		+ anschließend folgen die gewünschten Grid-Eigenschaften
+	</script>
+</section>
+
+<section id="" data-markdown>
+	<script type="text/template">
+		### minmax() - Funktion
+
+		```css
+		grid-template-columns: minmax(100px, 200px) 200px 200px;
+		
+		```
+
+		![minmax](/images/minmax.gif) <!-- .element width="500px" -->
+		
+		- wenn max < min wird max ignoriert und minmax(min, max) behandelt wie min
+	</script>			
+</section>
+
+<section id="Areas" data-markdown>
+	## Grid-Aufbau mit Areas
 </section>
 
 <section id="GridItemPlacement" data-markdown>
@@ -528,7 +595,7 @@ permalink: /slides/grid/
 
 <section data-markdown>
 	<script type="text/template">
-		### auto placement
+		### Auto Placement
 
 		Note:
 		+ wenn nichts angegeben wird auto placement angewendet
@@ -541,7 +608,7 @@ permalink: /slides/grid/
 		grid-auto-flow: row;
 		```
 
-		![text](/images/grid_auto_flow_row.gif)
+		![auto flow row](/images/grid_auto_flow_row.gif)
 		<small style="position: relative; left: 282px; top: -7px;">Quelle: [http://gedd.ski/post/grid-item-placement](http://gedd.ski/post/grid-item-placement)</small>
 
 		Note:
@@ -555,7 +622,7 @@ permalink: /slides/grid/
 		grid-auto-flow: column;
 		```
 
-		![text](/images/grid_auto_flow_column.gif)
+		![auto flow column](/images/grid_auto_flow_column.gif)
 		<small style="position: relative; left: 282px; top: -7px;">Quelle: [http://gedd.ski/post/grid-item-placement](http://gedd.ski/post/grid-item-placement)</small>	
 	</script>
 </section>
@@ -579,10 +646,8 @@ permalink: /slides/grid/
 		}
 		```
 
-		![text](/images/grid_item_placement_row-start.gif)
+		![grid item placement row start](/images/grid_item_placement_row-start.gif)
 		<small style="position: relative; left: 282px; top: -7px;">Quelle: [http://gedd.ski/post/grid-item-placement](http://gedd.ski/post/grid-item-placement)</small>
-
-		Note: 
 	</script>
 </section>
 
@@ -594,7 +659,7 @@ permalink: /slides/grid/
 		}
 		```
 
-		![text](/images/grid_item_placement_row-end.gif)
+		![grid item placement row end](/images/grid_item_placement_row-end.gif)
 		<small style="position: relative; left: 282px; top: -7px;">Quelle: [http://gedd.ski/post/grid-item-placement](http://gedd.ski/post/grid-item-placement)</small>	
 	</script>
 </section>
@@ -607,7 +672,7 @@ permalink: /slides/grid/
 		}
 		```
 
-		![text](/images/grid_item_placement_row-span.gif)
+		![grid item placement row span](/images/grid_item_placement_row-span.gif)
 		<small style="position: relative; left: 282px; top: -7px;">Quelle: [http://gedd.ski/post/grid-item-placement](http://gedd.ski/post/grid-item-placement)</small>
 
 		Note:
@@ -623,7 +688,7 @@ permalink: /slides/grid/
 		}
 		```
 
-		![text](/images/grid_item_placement_column-positioning.gif)
+		![grid item placement column positioning](/images/grid_item_placement_column-positioning.gif)
 		<small style="position: relative; left: 282px; top: -7px;">Quelle: [http://gedd.ski/post/grid-item-placement](http://gedd.ski/post/grid-item-placement)</small>
 
 		Note:
@@ -641,11 +706,17 @@ permalink: /slides/grid/
 		}
 		```
 
-		![text](/images/grid_item_placement_column-flow-priority.gif)
+		![column flow priority](/images/grid_item_placement_column-flow-priority.gif)
 		<small style="position: relative; left: 282px; top: -7px;">Quelle: [http://gedd.ski/post/grid-item-placement](http://gedd.ski/post/grid-item-placement)</small>
 
 		Note:
 		+ priority placement für column positioning bei column flowing grid
+	</script>
+</section>
+
+<section data-markdown>
+	<script type="text/template">
+		### Order
 	</script>
 </section>
 
@@ -657,7 +728,7 @@ permalink: /slides/grid/
 		}
 		```
 
-		![text](/images/grid_item_placement_order.gif)
+		![order](/images/grid_item_placement_order.gif)
 		<small style="position: relative; left: 282px; top: -7px;">Quelle: [http://gedd.ski/post/grid-item-placement](http://gedd.ski/post/grid-item-placement)</small>
 
 		Note:
@@ -674,7 +745,7 @@ permalink: /slides/grid/
 		}
 		```
 
-		![text](/images/grid_item_placement_negative-order.gif)
+		![negative order](/images/grid_item_placement_negative-order.gif)
 		<small style="position: relative; left: 282px; top: -7px;">Quelle: [http://gedd.ski/post/grid-item-placement](http://gedd.ski/post/grid-item-placement)</small>
 
 		Note:
@@ -693,12 +764,34 @@ permalink: /slides/grid/
 		}
 		```
 
-		![text](/images/grid_item_placement_negative-order.gif)
-		<small style="position: relative; left: 282px; top: -7px;">Quelle: [http://gedd.ski/post/grid-item-placement](http://gedd.ski/post/grid-item-placement)</small>
+		![positioning before order](/images/grid_item_placement_positioning-before-order.gif) <!-- .element class="fragment" data-fragment-index="1" -->
+		<small style="position: relative; left: 282px; top: -7px;">Quelle: [http://gedd.ski/post/grid-item-placement](http://gedd.ski/post/grid-item-placement)</small> <!-- .element class="fragment" data-fragment-index="1" -->
 
 		Note:
 		+ start/end kommt vor order
 		+ grid items mit same-direction-as-grid positioning sind "Gold Card Members"
+	</script>
+</section>
+
+<section data-markdown>
+	<script type="text/template">
+		#### Grid Item Placement - Zusammenfassung
+
+		- viele Möglichkeiten ein grid item in einem grid zu plazieren
+
+		  *grid-row-start, grid-row-end, grid-column-start, grid-column-end, grid-area*
+		- Grid Item Placement Algorithm gibt Top Prio für items mit entsprechender Definition
+		- priority placement nur für start/end, nicht für span
+		- kein priority placement für column positioning (bei grid-auto-flow: row)
+
+		  *wenn grid item an der Reihe ist wird angegebene Position beachtet*
+		  *es können leere Zellen entstehen*
+		- priority placement für column positioning bei column flowing grid
+		- default order: 0
+
+		  *grid item muss warten, bis alle anderen grid items plaziert sind*
+		- start/end kommt vor order
+		- grid items mit same-direction-as-grid positioning sind "Gold Card Members" <!-- .element class="highlight-orange" -->
 	</script>
 </section>
 

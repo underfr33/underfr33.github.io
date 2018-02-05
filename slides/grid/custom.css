@@ -70,14 +70,14 @@
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr); }
   .reveal .grid-column .grid-item:nth-child(1) {
-    background-color: red;
+    background-color: #228b22;
     grid-column-start: 1;
     grid-column-end: 3; }
 .reveal .grid-row {
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr); }
   .reveal .grid-row .grid-item:nth-child(1) {
-    background-color: red;
+    background-color: #228b22;
     grid-row-start: 1;
     grid-row-end: 4; }
 .reveal .grid-item {
