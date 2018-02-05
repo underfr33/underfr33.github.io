@@ -47,10 +47,10 @@
 .reveal .grid-container {
   display: -ms-grid;
   display: grid;
+  grid-gap: 2px;
   margin: 0 auto;
   width: 250px;
   height: 250px;
-  padding: 0.3em;
   border: 2px solid rgba(0, 0, 0, 0.2); }
   .reveal .grid-container.grid-auto-flow-row, .reveal .grid-container.grid-auto-flow-column {
     grid-auto-flow: row;
@@ -81,7 +81,6 @@
     grid-row-start: 1;
     grid-row-end: 4; }
 .reveal .grid-item {
-  border: 1px solid #FFF;
   color: #FFF;
   font-size: 0.5em; }
 .reveal .grid-item:nth-child(1) {

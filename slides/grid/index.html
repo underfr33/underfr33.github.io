@@ -272,7 +272,7 @@ permalink: /slides/grid/
 	</script>
 </section>
 
-<section data-markdown>
+<!-- section data-markdown>
 	<script type="text/template">
 		### grid-template Beispiel 1
 
@@ -322,7 +322,7 @@ permalink: /slides/grid/
 			<span class="grid-item flex-center">9</span>
 		</div>
 	</script>
-</section>
+</section -->
 
 <section data-markdown>
 	<script type="text/template">
@@ -347,6 +347,11 @@ permalink: /slides/grid/
 			<span class="grid-item flex-center">8</span>
 			<span class="grid-item flex-center">9</span>
 		</div>
+
+		Note:
+		+ Breite für Rasterlinien, wenn man einen Abstand möchte
+		+ Abstände nur zwischen inneren Zeilen und Spalten
+		+ erste und letzte Rasterlinien bleiben unverändert
 	</script>
 </section>
 
@@ -376,18 +381,22 @@ permalink: /slides/grid/
 </section>
 
 <section data-markdown>
-	#### weitere Eigenschaften auf dem Grid Container
+	<script type="text/template">
+		#### weitere Eigenschaften auf dem Grid Container
 
-	- grid-template-areas
-	- grid-template
-	- justify-items
-	- align-items
-	- justify-content
-	- align-content
-	- grid-auto-columns
-	- grid-auto-rows
-	- grid-auto-flow
-	- grid
+		- grid-template-areas* <!-- .element class="highlight-orange" -->
+		- grid-template
+		- justify-items
+		- align-items
+		- justify-content
+		- align-content
+		- grid-auto-columns
+		- grid-auto-rows
+		- grid-auto-flow* <!-- .element class="highlight-orange" -->
+		- grid
+
+		<small>* später mehr dazu</small> <!-- .element class="highlight-orange" -->
+	</script>
 </section>
 
 <section data-markdown>
@@ -498,11 +507,15 @@ permalink: /slides/grid/
 </section>
 
 <section data-markdown>
-	#### weitere Eigenschaften auf dem Grid Item
+	<script type="text/template">
+		#### weitere Eigenschaften auf dem Grid Item
 
-	- grid-area
-	- justify-self
-	- align-self
+		- grid-area* <!-- .element class="highlight-orange" -->
+		- justify-self
+		- align-self
+
+		<small>* auch dazu gleich noch mehr</small> <!-- .element class="highlight-orange" -->
+	</script>
 </section>
 
 <section id="" data-markdown>
@@ -568,6 +581,89 @@ permalink: /slides/grid/
 
 <section id="Areas" data-markdown>
 	## Grid-Aufbau mit Areas
+</section>
+
+<section id="" data-markdown>
+	<script type="text/template">
+		#### Grid Areas - html Struktur
+
+		```xml
+		<div class="container">
+			<header>header</header>
+			<main>main</main>
+			<aside>sidebar</aside>
+			<footer>footer</footer>
+		</div>
+		```
+	</script>	
+</section>
+
+<section id="" data-markdown>
+	<script type="text/template">
+		#### Grid Areas - Kind Elemente einen Bereich zuweisen
+
+		```css
+		header {
+			grid-area: header;
+		} 
+
+		main {
+			grid-area: content;
+		} 
+
+		aside {
+			grid-area: sidebar;
+		} 
+
+		footer {
+			grid-area: footer;
+		}
+		```
+	</script>	
+</section>
+
+<section id="" data-markdown>
+	<script type="text/template">
+		#### Grid Areas - Definition des Grid im Elternelement
+
+		```css
+		.container {
+			height:100vh;
+			display: grid;
+			grid-template-rows: 200px 1fr 100px;
+			grid-template-columns: 25% 25% 25% 25%;
+			grid-template-areas:
+					"header header header header"
+					"sidebar content content content"
+					"footer footer footer footer"
+			;
+		}
+		```
+
+		Note:
+		+ einzelnen Zellen innerhalb einer Zeile werden mit Namen verstehen
+		+ einzelnen Zeilen stehen in Anführungszeichen
+		+ einzelnen Namen werden mit Leerzeichen voneinander getrennt
+		+ Layoutaufbau wird so schon im Stylesheet "sichtbar"
+	</script>
+</section>
+
+<section id="" data-markdown>
+	<script type="text/template">
+		#### Grid Areas - Leere und undefinierte Bereiche
+
+		```css
+		grid-template-areas:
+				"header header header header"
+				"sidebar . content content"
+				"footer footer footer footer"
+		;
+		```
+
+		Note:
+		+ Punkt als Platzhalter
+		+ bei undefiniert "done"
+	</script>
 </section>
 
 <section id="GridItemPlacement" data-markdown>
