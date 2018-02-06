@@ -8,23 +8,23 @@ transition: slide
 permalink: /slides/grid/
 ---
 
-<section id="Start" data-markdown data-state="dark" data-background-image="/images/grid_bg.jpg" style="text-align: left; max-width: 60%; left: 70px; background-color: rgba(255,255,255,0.8); padding: 1em !important;">
+<section id="takeoff" data-markdown data-state="dark" data-background-image="/images/grid_bg.jpg" style="text-align: left; max-width: 60%; left: 70px; background-color: rgba(255,255,255,0.8); padding: 1em !important;">
 	# Responsives und flexibles Layouten mit CSS Grid Layout
 	by [Katrin Werner](/) / [@underfree](http://twitter.com/underfree)
 	Februar 2018
 </section>
 
-<section id="Fahrplan" data-markdown data-state="dark" data-background-image="/images/station.jpg" style="text-align: left; left: 70px; color: #FFF;">
+<section id="overview" data-markdown data-state="dark" data-background-image="/images/station.jpg" style="text-align: left; left: 70px; color: #FFF;">
 	## Fahrplan
 
-	1. Basics
-	2. CSS-Eigenschaften
-	3. fr-fraction, repaet() & minmax()
-	4. Areas
-	5. Grid Item Placement Algorithm
+	1. [Basics](/slides/grid/#/layoutingInCSS)
+	2. [CSS-Eigenschaften](/slides/grid/#/propertiesOnGridContainer)
+	3. [fr-fraction, repeat() & minmax()](/slides/grid/#/moreNewStuff)
+	4. [Areas](/slides/grid/#/gridAreas)
+	5. [Grid Item Placement](/slides/grid/#/gridItemPlacement)
 </section>
 
-<section id="LayoutingInCSS" data-markdown>
+<section id="layoutingInCSS" data-markdown>
 	<script type="text/template">
 		### Layouting in CSS
 		- keine Layout Tools <!-- .element class="fragment" -->
@@ -44,7 +44,7 @@ permalink: /slides/grid/
 	</script>
 </section>
 
-<section id="GridvsFlexbox" data-markdown>
+<section id="flexboxVsGrid" data-markdown>
 	<script type="text/template">
 		### Flexbox vs Grid
 		
@@ -52,24 +52,24 @@ permalink: /slides/grid/
 	</script>
 </section>
 
-<section data-markdown>
-		<script type="text/template">
-			### Browsersupport
-			![Browsersupport](/images/caniuse_grid.png)
-			
-			<small style="position: relative; left: 257px; top: -7px;">Quelle: [https://caniuse.com/#search=css%20grid](https://caniuse.com/#search=css%20grid)</small>
+<section id="support" data-markdown>
+	<script type="text/template">
+		### Browsersupport
+		![Browsersupport](/images/caniuse_grid.png)
+		
+		<small style="position: relative; left: 257px; top: -7px;">Quelle: [https://caniuse.com/#search=css%20grid](https://caniuse.com/#search=css%20grid)</small>
 
-			Note:
-			+ Browser-Support bei neuen CSS-Eigenschaften immer etwas Spezielles
-			+ CSS Grid aber jetzt schon von allen modernen Browsern unterstützt, IE diesmal kein Spielverderber
-		</script>
+		Note:
+		+ Browser-Support bei neuen CSS-Eigenschaften immer etwas Spezielles
+		+ CSS Grid aber jetzt schon von allen modernen Browsern unterstützt, IE diesmal kein Spielverderber
+	</script>
 </section>
 
-<section id="Terminologie" data-markdown>
+<section id="terminology" data-markdown>
 	## Terminologie
 </section>
 
-<section id="GridContainer">
+<section id="gridContainer">
 	<h3>Grid Container</h3>
 	<ul>
 		<li>Das Element, auf das <span class="highlight-orange"><i>display: grid</i></span> angewendet wird</li>
@@ -90,7 +90,7 @@ permalink: /slides/grid/
 	</div>
 </section>
 
-<section id="GridItem">
+<section id="gridItem">
 	<h3>Grid Item</h3>
 	<ul>
 		<li>Die Kinder des Grid Containers</li>
@@ -116,17 +116,17 @@ permalink: /slides/grid/
 	</aside>
 </section>
 
-<section id="GridLine" data-markdown>
+<section id="gridLine" data-markdown>
 	<script type="text/template">	
 		### Grid Line
 		- Trennende Linien, die die Struktur des Grids ausmachen
 		- entweder vertikal (*"column grid line"*) oder horizontal (*"row grid line"*)
 
-		![grid lines](/images/grid_lines.png)<!-- .element width="300px" -->
+		![grid lines](/images/grid_lines.png) <!-- .element width="300px" -->
 	</script>
 </section>
 
-<!-- section id="GridTrack" data-markdown>
+<!-- section id="gridTrack" data-markdown>
 	<script type="text/template">
 		### Grid Track
 		- Die Fläche zwischen zwei benachbarten Grid Lines
@@ -134,31 +134,31 @@ permalink: /slides/grid/
 		
 		![grid track](/images/grid_track.png)		
 	</script>
-</section>
+</section -->
 
-<section id="GridCell" data-markdown>
+<section id="gridCell" data-markdown>
 	<script type="text/template">
 		### Grid Cell
 		- Die Fläche zwischen zwei benachbarten horizontalen und zwei benachbarten vertikalen Grid Lines
 		- Eine einzelne Einheit eines CSS Grid
 		- Im Beispiel die Grid Cell zwischen row grid lines 2 und 3 und column grid lines 1 und 2
 		
-		![grid cell](/images/grid_cell.png)		
+		![grid cell](/images/grid_cell.png) <!-- .element width="300px" -->
 	</script>
-</section -->
+</section>
 
-<section id="GridArea" data-markdown>
+<section id="gridArea" data-markdown>
 	<script type="text/template">
 		### Grid Area
 		- Die Fläche zwischen 4 Grid Lines
 		- kann eine beliebige Anzahl von *Grid Cells* enthalten
 		- Grid Area ist immer rechteckig - L-Form zum Beispiel nicht möglich
 		
-		![grid area](/images/grid_area.png)<!-- .element width="300px" -->		
+		![grid area](/images/grid_area.png) <!-- .element width="300px" -->
 	</script>
 </section>
 
-<section data-markdown>
+<section id="propertiesOnGridContainer" data-markdown>
 	## CSS-Eigenschaften
 	### auf dem Grid Container
 </section>
@@ -201,7 +201,7 @@ permalink: /slides/grid/
 	</script>
 </section>
 
-<section data-markdown>
+<section id="displayGrid" data-markdown>
 	<script type="text/template">
 		### display
 
@@ -225,7 +225,7 @@ permalink: /slides/grid/
 	</script>
 </section>
 
-<section data-markdown>
+<section id="gridTemplateSyntax" data-markdown>
 	<script type="text/template">
 		### grid-template-columns
 		### grid-template-rows
@@ -245,7 +245,7 @@ permalink: /slides/grid/
 	</script>
 </section>
 
-<section data-markdown>
+<section id="gridTemplateExample" data-markdown>
 	<script type="text/template">
 		```css
 		.container {
@@ -259,7 +259,7 @@ permalink: /slides/grid/
 	</script>
 </section>
 
-<section data-markdown>
+<section id="namingLines" data-markdown>
 	<script type="text/template">
 		```css
 		.container {
@@ -324,7 +324,7 @@ permalink: /slides/grid/
 	</script>
 </section -->
 
-<section data-markdown>
+<section id="gridGap" data-markdown>
 	<script type="text/template">
 		### grid-gap
 
@@ -355,7 +355,7 @@ permalink: /slides/grid/
 	</script>
 </section>
 
-<section data-markdown>
+<section id="gridGapShorthand" data-markdown>
 	<script type="text/template">
 		### grid-gap - shorthand
 
@@ -380,7 +380,7 @@ permalink: /slides/grid/
 	</script>
 </section>
 
-<section data-markdown>
+<section id="morePropertiesOnGridContainer" data-markdown>
 	<script type="text/template">
 		#### weitere Eigenschaften auf dem Grid Container
 
@@ -399,12 +399,12 @@ permalink: /slides/grid/
 	</script>
 </section>
 
-<section data-markdown>
+<section id="propertiesOnGridItem" data-markdown>
 	## CSS-Eigenschaften
 	### auf dem Grid Item
 </section>
 
-<section data-markdown>
+<section id="gridColumn" data-markdown>
 	<script type="text/template">
 		### grid-column
 
@@ -426,7 +426,7 @@ permalink: /slides/grid/
 	</script>
 </section>
 
-<section data-markdown>
+<section id="gridColumnShorthand" data-markdown>
 	<script type="text/template">
 		### grid-column shorthand
 
@@ -447,7 +447,7 @@ permalink: /slides/grid/
 	</script>
 </section>
 
-<section data-markdown>
+<section id="gridRow" data-markdown>
 	<script type="text/template">
 		### grid-row
 
@@ -468,7 +468,7 @@ permalink: /slides/grid/
 	</script>
 </section>
 
-<section data-markdown>
+<section id="gridRowShorthand" data-markdown>
 	<script type="text/template">
 		### grid-row shorthand
 
@@ -488,7 +488,7 @@ permalink: /slides/grid/
 	</script>
 </section>
 
-<section data-markdown>
+<section id="gridRowAndColumn" data-markdown>
 	<script type="text/template">
 		### grid-row + grid-column
 
@@ -506,7 +506,7 @@ permalink: /slides/grid/
 	</script>
 </section>
 
-<section data-markdown>
+<section id="morePropertiesOnGridItem" data-markdown>
 	<script type="text/template">
 		#### weitere Eigenschaften auf dem Grid Item
 
@@ -518,11 +518,11 @@ permalink: /slides/grid/
 	</script>
 </section>
 
-<section id="" data-markdown>
-	## fr-fraction, repaet & minmax()
+<section id="moreNewStuff" data-markdown>
+	## fr-fraction, repeat() & minmax()
 </section>
 
-<section id="" data-markdown>
+<section id="fraction" data-markdown>
 	<script type="text/template">
 		### fr - fraction
 
@@ -534,7 +534,7 @@ permalink: /slides/grid/
 		}
 		```
 
-		![grid fraction](/images/grid_fraction.png)<!-- .element width="500px" -->
+		![grid fraction](/images/grid_fraction.png) <!-- .element width="500px" -->
 
 		Note:
 		+ neue flexible Maßeinheit
@@ -544,7 +544,7 @@ permalink: /slides/grid/
 	</script>
 </section>
 
-<section id="" data-markdown>
+<section id="repeat" data-markdown>
 	<script type="text/template">
 		### repeat() - Funktion
 
@@ -556,7 +556,7 @@ permalink: /slides/grid/
 		}
 		```
 
-		![grid fraction](/images/grid_fraction.png)<!-- .element width="500px" -->
+		![grid fraction](/images/grid_fraction.png) <!-- .element width="500px" -->
 
 		Note:
 		+ der erste Wert steht für die Anzahl der Wiederholungen
@@ -564,9 +564,9 @@ permalink: /slides/grid/
 	</script>
 </section>
 
-<section id="" data-markdown>
+<section id="minmax" data-markdown>
 	<script type="text/template">
-		### minmax() - Funktion
+		### minmax(min, max) - Funktion
 
 		```css
 		grid-template-columns: minmax(100px, 200px) 200px 200px;
@@ -575,15 +575,15 @@ permalink: /slides/grid/
 
 		![minmax](/images/minmax.gif) <!-- .element width="500px" -->
 		
-		- wenn max < min wird max ignoriert und minmax(min, max) behandelt wie min
+		- wenn max < min ist, wird der max-Wert ignoriert
 	</script>			
 </section>
 
-<section id="Areas" data-markdown>
+<section id="gridAreas" data-markdown>
 	## Grid-Aufbau mit Areas
 </section>
 
-<section id="" data-markdown>
+<section id="gridAreasExample" data-markdown>
 	<script type="text/template">
 		#### Grid Areas - html Struktur
 
@@ -598,22 +598,22 @@ permalink: /slides/grid/
 	</script>	
 </section>
 
-<section id="" data-markdown>
+<section id="gridAreaPropertie" data-markdown>
 	<script type="text/template">
 		#### Grid Areas - Kind Elemente einen Bereich zuweisen
 
 		```css
 		header {
 			grid-area: header;
-		} 
+		}
 
 		main {
 			grid-area: content;
-		} 
+		}
 
 		aside {
 			grid-area: sidebar;
-		} 
+		}
 
 		footer {
 			grid-area: footer;
@@ -622,7 +622,7 @@ permalink: /slides/grid/
 	</script>	
 </section>
 
-<section id="" data-markdown>
+<section id="gridTemplateAreas" data-markdown>
 	<script type="text/template">
 		#### Grid Areas - Definition des Grid im Elternelement
 
@@ -630,25 +630,37 @@ permalink: /slides/grid/
 		.container {
 			height:100vh;
 			display: grid;
-			grid-template-rows: 200px 1fr 100px;
-			grid-template-columns: 25% 25% 25% 25%;
+			grid-template-rows: 100px 1fr 50px;
+			grid-template-columns: 1fr 2fr;
 			grid-template-areas:
-					"header header header header"
-					"sidebar content content content"
-					"footer footer footer footer"
-			;
+					"header header"
+					"sidebar content"
+					"footer footer";
 		}
 		```
 
 		Note:
-		+ einzelnen Zellen innerhalb einer Zeile werden mit Namen verstehen
+		+ einzelnen Zellen innerhalb einer Zeile werden mit Namen versehen
 		+ einzelnen Zeilen stehen in Anführungszeichen
 		+ einzelnen Namen werden mit Leerzeichen voneinander getrennt
 		+ Layoutaufbau wird so schon im Stylesheet "sichtbar"
 	</script>
 </section>
 
-<section id="" data-markdown>
+<section data-markdown>
+	<script type="text/template">
+		#### Grid Areas
+
+		<div class="container grid-area">
+			<header>header</header>
+			<main>main</main>
+			<aside>sidebar</aside>
+			<footer>footer</footer>
+		</div>
+	</script>
+</section>
+
+<section id="emptyGridCell" data-markdown>
 	<script type="text/template">
 		#### Grid Areas - Leere und undefinierte Bereiche
 
@@ -666,13 +678,51 @@ permalink: /slides/grid/
 	</script>
 </section>
 
-<section id="GridItemPlacement" data-markdown>
+<section id="funFact" data-markdown>
+	<script type="text/template">
+		#### Emojis Grid Areas 😎
+
+		```css
+		header {
+			grid-area: 😍;
+		} 
+
+		main {
+			grid-area: 🍟;
+		} 
+
+		aside {
+			grid-area: 🍔;
+		} 
+
+		footer {
+			grid-area: 🍺;
+		}
+		```
+
+		```css
+		.container {
+			height:100vh;
+			display: grid;
+			grid-template-rows: 200px 1fr 100px;
+			grid-template-columns: repeat(4, 25%);
+			grid-template-areas:
+					"😍 😍 😍 😍"
+					"🍔 🍟 🍟 🍟"
+					"🍺 🍺 🍺 🍺"
+			;
+		}
+		```
+	</script>
+</section>
+
+<section id="gridItemPlacement" data-markdown>
 	## Grid Item Placement
 </section>
 
-<section id="GridItemPlacementAlgorithm" data-markdown>
+<section id="gridItemPlacementAlgorithm" data-markdown>
 	### Grid Item Placement Algorithm
-	- CSS Grid anwenden bedeutet mehr als nur Synthax merken
+	- CSS Grid anwenden bedeutet mehr als nur Syntax merken
 	- ein wichtiger Part ist zu verstehen, wie der Browser die Grid Elemente in einem Grid anordnet
 </section>
 
@@ -689,7 +739,7 @@ permalink: /slides/grid/
 	</script>
 </section>
 
-<section data-markdown>
+<section id="autoPlacement" data-markdown>
 	<script type="text/template">
 		### Auto Placement
 
@@ -698,7 +748,7 @@ permalink: /slides/grid/
 	</script>
 </section>
 
-<section data-markdown>
+<section id="gridAutoFlowRow" data-markdown>
 	<script type="text/template">
 		```css
 		grid-auto-flow: row;
@@ -712,7 +762,7 @@ permalink: /slides/grid/
 	</script>
 </section>
 
-<section data-markdown>
+<section id="gridAutoFlowColumn" data-markdown>
 	<script type="text/template">
 		```css
 		grid-auto-flow: column;
@@ -723,7 +773,7 @@ permalink: /slides/grid/
 	</script>
 </section>
 
-<section data-markdown>
+<section id="placedGridItems" data-markdown>
 	<script type="text/template">
 		### Placed Grid Items
 
@@ -734,7 +784,7 @@ permalink: /slides/grid/
 	</script>
 </section>
 
-<section data-markdown>
+<section id="gridItemPlacementRowStart" data-markdown>
 	<script type="text/template">
 		```css
 		rocky {
@@ -747,7 +797,7 @@ permalink: /slides/grid/
 	</script>
 </section>
 
-<section data-markdown>
+<section id="gridItemPlacementRowEnd" data-markdown>
 	<script type="text/template">
 		```css
 		rocky {
@@ -760,7 +810,7 @@ permalink: /slides/grid/
 	</script>
 </section>
 
-<section data-markdown>
+<section id="gridItemPlacementSpan" data-markdown>
 	<script type="text/template">
 		```css
 		rocky {
@@ -794,11 +844,11 @@ permalink: /slides/grid/
 	</script>
 </section>
 
-<section data-markdown>
+<section id="gridItemPlacementColumnStart" data-markdown>
 	<script type="text/template">
 		```css
 		rocky {
-			grid-column-start: 3;
+			grid-column-start: 2;
 		}
 		```
 
@@ -810,13 +860,13 @@ permalink: /slides/grid/
 	</script>
 </section>
 
-<section data-markdown>
+<section id="gridOrder" data-markdown>
 	<script type="text/template">
 		### Order
 	</script>
 </section>
 
-<section data-markdown>
+<section id="gridOrderPositive" data-markdown>
 	<script type="text/template">
 		```css
 		dunes {
@@ -833,7 +883,7 @@ permalink: /slides/grid/
 	</script>
 </section>
 
-<section data-markdown>
+<section id="gridOrderNegative" data-markdown>
 	<script type="text/template">
 		```css
 		dunes {
@@ -849,7 +899,7 @@ permalink: /slides/grid/
 	</script>
 </section>
 
-<section data-markdown>
+<section id="positioningAndOrder" data-markdown>
 	<script type="text/template">
 		```css
 		rocky {
@@ -869,7 +919,7 @@ permalink: /slides/grid/
 	</script>
 </section>
 
-<section data-markdown>
+<section id="gridItemPlacementOverview" data-markdown>
 	<script type="text/template">
 		#### Grid Item Placement - Zusammenfassung
 
@@ -881,6 +931,7 @@ permalink: /slides/grid/
 		- kein priority placement für column positioning (bei grid-auto-flow: row)
 
 		  *wenn grid item an der Reihe ist wird angegebene Position beachtet*
+
 		  *es können leere Zellen entstehen*
 		- priority placement für column positioning bei column flowing grid
 		- default order: 0
@@ -891,9 +942,9 @@ permalink: /slides/grid/
 	</script>
 </section>
 
-<section id="Thx" data-markdown data-state="dark" data-background-image="/images/applause.gif">
+<section id="thx" data-markdown data-state="dark" data-background-image="/images/applause.gif">
 	## Danke!
 </section>
 
-<section id="Fragen" data-markdown data-background-image="/images/questions.jpg">
+<section id="questions" data-markdown data-background-image="/images/questions.jpg">
 </section>
