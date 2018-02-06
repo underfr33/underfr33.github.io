@@ -36,8 +36,8 @@
   .reveal pre code {
     border-left: 1em solid darkorange;
     overflow-x: hidden;
-    font-size: 20px;
-    line-height: 1.3em; }
+    font-size: 16px;
+    line-height: 1.2em; }
 .reveal iframe {
   width: 90vw;
   height: 60vh; }
