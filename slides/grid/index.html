@@ -661,6 +661,48 @@ permalink: /slides/grid/
 	</script>
 </section>
 
+<section data-markdown>
+	<script type="text/template">
+		#### Responsive CSS Grids mit Areas
+
+		```css
+		.container {
+			height:100vh;
+			display: grid;
+			grid-template-rows: 100px 1fr 2fr 50px;
+			grid-template-columns: 1fr;
+			grid-template-areas:
+			  "header"
+			  "sidebar"
+			  "content"
+			  "footer"; 
+		  } 
+		```
+
+		```css
+		@media screen and (min-width: 414px) {
+			.container {
+			  grid-template-rows: 100px 1fr 50px;
+			  grid-template-columns: 1fr 2fr;
+			  grid-template-areas:
+				"header header"
+				"sidebar content"
+				"footer footer";
+			  }
+		  }
+		```
+
+		Note:
+		+ Grid kann mit Hilfe von Media Queries neu definiert werden
+	</script>
+</section>
+
+<section data-markdown>
+	<script type="text/template">
+		<iframe src="https://codepen.io/underfree/pen/WMGrME"></iframe>
+	</script>
+</section>
+
 <!-- section id="emptyGridCell" data-markdown>
 	<script type="text/template">
 		#### Grid Areas - Leere und undefinierte Bereiche
@@ -947,8 +989,9 @@ permalink: /slides/grid/
 	## Danke!
 </section>
 
-<section id="questions" data-markdown data-background-image="/images/questions.jpg">
+<section id="book" data-background="/images/a_book_apart_cssGrid.jpg" data-markdown>
+	##### Buchempfehlung
 </section>
 
-<section id="book" data-markdown>
+<section id="questions" data-markdown data-background-image="/images/questions.jpg">
 </section>

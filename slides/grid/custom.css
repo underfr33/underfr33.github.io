@@ -29,6 +29,13 @@
   .reveal h3 + h3,
   .reveal .has-dark-background h3 + h3 {
     margin-top: -20px; }
+.reveal h5 {
+  font-weight: normal;
+  padding: 2em;
+  background: rgba(255, 255, 255, 0.7);
+  position: absolute;
+  top: -180px;
+  right: 0; }
 .reveal p {
   font-size: 0.8em; }
 .reveal pre {

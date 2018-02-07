@@ -38,6 +38,14 @@ $color-grid: rgba(255, 140, 0, 1);
             margin-top: -20px;
         }
     }
+    h5 {
+        font-weight: normal;
+        padding: 2em;
+        background: rgba(255, 255, 255, 0.7);
+        position: absolute;
+        top: -180px;
+        right: 0;
+    }
     p {
         font-size: 0.8em;
     }
